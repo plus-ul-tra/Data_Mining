@@ -32,9 +32,8 @@ def calculate_jaccard_index(graph, v1, v2):
 
     if union_size > 0:
         jaccard_index = intersection_size / union_size
+
         return jaccard_index
-    else:
-        return 0
 
 def find_edges_between_clusters(graph, clusters):
     edges_between_clusters = []
@@ -65,36 +64,42 @@ def calculate_density(graph, clusters):
 final_clusters =[]
 threshold = 0.4
 
+
 def merge_clusters(graph, clusters):
     max_jaccard_index = 0
     max_jaccard_pair = None
+    merged_cluster =[]
 
     for cluster1 in clusters:
         for cluster2 in clusters:
             if cluster1 != cluster2:
                 for v1 in cluster1:
                     for v2 in cluster2:
-                        jaccard_index = calculate_jaccard_index(graph, v1, v2)
-                        if jaccard_index > max_jaccard_index:
-                            max_jaccard_index = jaccard_index
-                            max_jaccard_pair = (cluster1, cluster2, v1, v2)
-
-    if max_jaccard_pair:
-        merged_cluster = set(max_jaccard_pair[0]).union(set(max_jaccard_pair[1]))
-        return merged_cluster, max_jaccard_pair[2], max_jaccard_pair[3]
-    else:
-        return None, None, None
+                        #인접 체크
+                        if v2 in graph[v1]:                        
+                            jaccard_index = calculate_jaccard_index(graph, v1, v2)
+                            if jaccard_index > max_jaccard_index:
+                                max_jaccard_index = jaccard_index
+                                max_jaccard_pair = (cluster1, cluster2, v1, v2)
+            if max_jaccard_pair:
+                merged_cluster.append(set(max_jaccard_pair[0]).union(set(max_jaccard_pair[1])))
+   
+    return merged_cluster
 
 def hierarchical_algorithm(graph, cluster):
     #edge_list = find_edges_between_clusters(graph,cluster)
-    merged_cluster, merged_v1, merged_v2 = merge_clusters(graph, cluster)
 
-    if merged_cluster:
-     clusters.append(merged_cluster)    
+        # 1 -> 2
+        merged_cluster = merge_clusters(graph, cluster)
+
+        if merged_cluster:
+            final_clusters.append(merged_cluster)
+            
 
 
-    
-    return 0
+        
+        return final_clusters
+
 
 def main():
  global final_clusters
