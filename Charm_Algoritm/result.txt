@@ -1,0 +1,11 @@
+{'YDR099w', 'YER177w'} 3.7 % support
+{'YLR371w', 'YGR070w'} 4.17 % support
+{'YCL069w', 'YMR088c'} 3.7 % support
+{'YDR011w', 'YOR153w'} 3.7 % support
+{'YDL134c', 'YDL188c'} 3.7 % support
+{'YGL163c', 'YBR073w'} 3.7 % support
+{'YOR178c', 'YER133w'} 3.7 % support
+{'YKL190w', 'YLR433c'} 3.7 % support
+{'YKL016c', 'YDR298c', 'YPL078c'} 3.7 % support
+{'YDR054c', 'YDL132w', 'YDR328c'} 3.7 % support
+{'YIL035c', 'YOR061w', 'YOR039w', 'YGL019w'} 3.7 % support
