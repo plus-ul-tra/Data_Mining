@@ -1,3 +1,2 @@
 # Data_Mining_Bottom_Up_Algorigthm
-Bottom-up Hirerachical Algorithm
-미완
+Bottom-up Hierarchical Algorithm
